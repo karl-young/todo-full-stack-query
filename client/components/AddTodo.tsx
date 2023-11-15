@@ -15,12 +15,17 @@ function AddTodo() {
 
   const taskMutation = useMutation({
     mutationFn: addTask,
-    onSuccess: (newTask) => {
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['task'] })
     },
   })
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    const { name, value } = event.target
+    const newForm = { ...form, [name]: value }
+    setForm(newForm)
+  }
+  function handleCheckboxChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target
     const newForm = { ...form, [name]: value }
     setForm(newForm)
@@ -38,7 +43,10 @@ function AddTodo() {
 
   return (
     <>
-      <input className="new-todo" placeholder="What needs to be done?" />
+    <form onSubmit={handleSubmit}>
+      <input className="new-todo" placeholder="What needs to be done?" onChange={handleChange} name="task" value={form.task}/>
+      {/* <input type="checkbox" className="new-todo" onChange={handleCheckboxChange} name="completed" value={form.completed}/> */}
+    </form>
     </>
   )
 }

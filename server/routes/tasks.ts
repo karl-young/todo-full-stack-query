@@ -22,6 +22,7 @@ router.post('/', async (req, res) => {
 
     if (!task) {
       res.sendStatus(400)
+      
       return
     }
 

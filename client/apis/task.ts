@@ -10,5 +10,6 @@ export async function getTasks(): Promise<Task[]> {
 // POST /api/v1/tasks
 export async function addTask(newTask: TaskData): Promise<Task> {
   const response = await request.post('/api/v1/tasks').send({ newTask })
+  console.log(response.body)
   return response.body.task
 }
