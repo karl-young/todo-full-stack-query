@@ -1,5 +1,6 @@
 import express from 'express'
 import * as Path from 'node:path'
+import taskRoutes from ".routes/task"
 
 const server = express()
 
@@ -13,4 +14,5 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
+server.use("/api/v1/tasks", taskRoutes)
 export default server
