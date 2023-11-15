@@ -39,12 +39,12 @@ Here's a list of steps in case they are useful. You can build in any order you l
 
 ### 1. Building the database
 
-- [ ] Design a database to store a list of tasks, e.g. task details, priority, completed yes/no
+- [x] Design a database to store a list of tasks, e.g. task details, priority, completed yes/no
 - [x] Build the migrations and seed data
 
 ### 2. Building the API
 
-- [ ] Build an API (back end route) to get the information from your database (list, add, update and delete)
+- [x] Build an API (back end route) to get the information from your database (list, add, update and delete)
 - [ ] Test your API with Insomnia
 
 ## Front end (Client-side)

@@ -2,7 +2,7 @@ import request from 'superagent'
 import { Task, TaskData } from '../../models/taskModels'
 
 // GET /api/v1/tasks
-export async function getTasks(): promise<Task[]> {
+export async function getTasks(): Promise<Task[]> {
   const response = await request.get('/api/v1/tasks')
   return response.body.tasks
 }
