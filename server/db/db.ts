@@ -9,7 +9,11 @@ export async function getAllTasks(): Promise<Task[]> {
 export async function addTask(task: string): Promise<Task> {
   return db('tasks').insert({ task }).returning(['id', 'task', 'completed'])
 }
-
+// idea maybe use this?
+// export async function addTask(task: string): Promise<Task> {
+//   const newTask = await db('tasks').insert({ task }).returning(['id', 'task', 'completed'])
+//   return newTask[0]
+// }
 export function deleteTask(id: number): Promise<void> {
   return db('tasks').where('id', id).delete()
 }

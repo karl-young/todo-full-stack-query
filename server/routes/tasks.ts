@@ -18,14 +18,14 @@ router.get('/', async (req, res) => {
 // POST /api/v1/tasks
 router.post('/', async (req, res) => {
   try {
-    const task = req.body
-    if (!task) {
+    const taskData = req.body as TaskData
+    if (!taskData) {
       res.sendStatus(400)
 
       return
     }
 
-    const newTask = await db.addTask(task)
+    const newTask = await db.addTask(taskData.task)
     res.json(newTask)
   } catch (error) {
     console.error(error)
