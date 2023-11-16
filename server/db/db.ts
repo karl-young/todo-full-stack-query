@@ -6,7 +6,7 @@ export async function getAllTasks(): Promise<Task[]> {
   return todo
 }
 
-export async function addTask(task: string): Promise<TaskData> {
+export async function addTask(task: string): Promise<Task> {
   return db('tasks').insert({ task }).returning(['id', 'task', 'completed'])
 }
 

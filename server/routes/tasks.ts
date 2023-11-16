@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 // POST /api/v1/tasks
 router.post('/', async (req, res) => {
   try {
-    const { task } = req.body
+    const task = req.body as TaskData
 
     if (!task) {
       res.sendStatus(400)
