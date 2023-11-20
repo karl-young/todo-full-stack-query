@@ -18,14 +18,12 @@ router.get('/', async (req, res) => {
 // POST /api/v1/tasks
 router.post('/', async (req, res) => {
   try {
-    const taskData = req.body as TaskData
+    const taskData = req.body.newTask 
     if (!taskData) {
       res.sendStatus(400)
-
       return
     }
-
-    const newTask = await db.addTask(taskData.task)
+    const newTask = await db.addTask(taskData as TaskData)
     res.json(newTask)
   } catch (error) {
     console.error(error)
@@ -33,4 +31,21 @@ router.post('/', async (req, res) => {
   }
 })
 
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    if (!id) {
+      res.sendStatus(400)
+      return
+    }
+
+    await db.deleteTask(id)
+    res.sendStatus(204)
+
+  } catch (error) {
+    console.error(error)
+    res.sendStatus(500)
+  }
+})
 export default router

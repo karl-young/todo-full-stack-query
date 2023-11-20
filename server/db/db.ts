@@ -6,15 +6,14 @@ export async function getAllTasks(): Promise<Task[]> {
   return todo
 }
 
-export async function addTask(task: string): Promise<Task> {
-  return db('tasks').insert({ task }).returning(['id', 'task', 'completed'])
+export async function addTask(task: TaskData): Promise<Task> {
+  const [newTask] = await db('tasks')
+    .insert( task )
+    .returning('*')
+  return newTask
 }
-// idea maybe use this?
-// export async function addTask(task: string): Promise<Task> {
-//   const newTask = await db('tasks').insert({ task }).returning(['id', 'task', 'completed'])
-//   return newTask[0]
-// }
-export function deleteTask(id: number): Promise<void> {
+
+export function deleteTask(id: number){
   return db('tasks').where('id', id).delete()
 }
 

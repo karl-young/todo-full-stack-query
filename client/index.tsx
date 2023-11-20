@@ -8,12 +8,10 @@ import { createBrowserRouter } from 'react-router-dom'
 const queryClient = new QueryClient()
 // const router = createBrowserRouter(routes)
 
-
 document.addEventListener('DOMContentLoaded', () => {
   createRoot(document.getElementById('app') as HTMLElement).render(
     <QueryClientProvider client={queryClient}>
       <App />
-      <ReactQueryDevtools />
     </QueryClientProvider>
   )
 })

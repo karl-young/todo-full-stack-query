@@ -6,9 +6,9 @@ import TaskList from './TaskList.tsx'
 function App() {
   return (
     <>
-      <TaskList />
       <AddTodo />
-
+      <TaskList />
+      
       <footer className="footer"></footer>
     </>
   )

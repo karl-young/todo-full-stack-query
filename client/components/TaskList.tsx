@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { getTasks } from '../apis/task.ts'
+import { DeleteButton } from './Delete.tsx'
 
 function TaskList() {
   const {
@@ -23,13 +24,12 @@ function TaskList() {
       </header>
       <section className="main">
         <ul className="todo-list">
-          {tasks.map((task) => (
-            <li key={task.id} className="completed">
-              <p>
-                {task.task}
-
-                {task.completed}
-              </p>
+          {tasks.map((task, index) => (
+            <li key={index} className="completed">
+              <p>{task.task}</p>
+              <div key={task.id}>
+                <DeleteButton id={task.id} />
+              </div>
             </li>
           ))}
         </ul>
