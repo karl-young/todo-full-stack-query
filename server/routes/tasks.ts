@@ -1,6 +1,6 @@
 import express from 'express'
 import * as db from '../db/db'
-import { Task, TaskData } from '../../models/taskModels'
+import { TaskData } from '../../models/taskModels'
 
 const router = express.Router()
 
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 // POST /api/v1/tasks
 router.post('/', async (req, res) => {
   try {
-    const taskData = req.body.newTask 
+    const taskData = req.body.newTask
     if (!taskData) {
       res.sendStatus(400)
       return
@@ -31,7 +31,6 @@ router.post('/', async (req, res) => {
   }
 })
 
-
 router.delete('/:id', async (req, res) => {
   try {
     const id = Number(req.params.id)
@@ -42,7 +41,6 @@ router.delete('/:id', async (req, res) => {
 
     await db.deleteTask(id)
     res.sendStatus(204)
-
   } catch (error) {
     console.error(error)
     res.sendStatus(500)
