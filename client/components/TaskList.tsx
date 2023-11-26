@@ -23,7 +23,7 @@ function TaskList() {
         <h1>Task List</h1>
       </header>
       <section className="main">
-        <ul className="todo-list">
+        <ul className="todo-list" role="group">
           {tasks.map((task, index) => (
             <li key={index} className="completed">
               <p>{task.task}</p>

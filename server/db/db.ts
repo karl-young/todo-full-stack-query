@@ -11,7 +11,7 @@ export async function addTask(task: TaskData): Promise<Task> {
     .insert( task )
     .returning('*')
   return newTask
-}
+} 
 
 export function deleteTask(id: number){
   return db('tasks').where('id', id).delete()

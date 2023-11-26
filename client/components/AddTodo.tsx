@@ -36,12 +36,17 @@ function AddTodo() {
     return <p>Adding Task</p>
   }
 
+  if ( taskMutation.isError) {
+    return <p>Error</p>
+  }
+
   return (
     <>
       <form onSubmit={handleSubmit}>
         <label htmlFor="task">Task:</label>
         <input
           id="task"
+          type='text'
           className="new-todo"
           placeholder="What needs to be done?"
           onChange={handleChange}
