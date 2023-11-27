@@ -34,6 +34,7 @@ router.post('/', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const id = Number(req.params.id)
+
     if (!id) {
       res.sendStatus(400)
       return
