@@ -9,7 +9,7 @@ import App from '../components/App'
 beforeEach(cleanup)
 expect.extend(matchers)
 
-export function renderRoute(location: string) {
+export function renderRoute() {
   const user = userEvent.setup()
   
   const queryClient = new QueryClient({
