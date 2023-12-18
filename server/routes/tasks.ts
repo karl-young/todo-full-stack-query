@@ -31,6 +31,7 @@ router.post('/', async (req, res) => {
   }
 })
 
+// DELETE /api/v1/tasks/:id
 router.delete('/:id', async (req, res) => {
   try {
     const id = Number(req.params.id)
